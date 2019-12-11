@@ -4,12 +4,15 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import ManageSitesAndReviews from './reducers/ManageSitesAndReviews'
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import manageSitesAndReviews from './reducers/ManageSitesAndReviews'
+
+import { Provider } from "react-redux";
+import { createStore , applyMiddleware} from "redux";
+import thunk from "redux-thunk";
 
 
-const store = createStore(ManageSitesAndReviews, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+
+const store = createStore(manageSitesAndReviews, applyMiddleware(thunk))
 
 
 ReactDOM.render(
