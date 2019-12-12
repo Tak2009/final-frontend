@@ -25,7 +25,7 @@ const manageSitesAndReviews = combineReducers({
 export default manageSitesAndReviews;
 
 function manageSites(state = [], action) {
-    console.log(action)
+    // console.log(action)
     switch(action.type) {
         case ADD_SITE:
             
@@ -53,7 +53,7 @@ function manageSites(state = [], action) {
 };
 
 function manageReviews(state = [], action) {
-    console.log(action)
+    // console.log(action)
     // debugger
     switch(action.type) {
         case SET_REVIEWS:

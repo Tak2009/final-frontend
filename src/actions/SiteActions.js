@@ -21,7 +21,7 @@ export const fetchSites = () => {
         fetch("http://localhost:4000/latinamericas")
         .then(resp => resp.json())
         .then(sites => {
-            console.log(sites)
+            // console.log(sites)
             dispatch(setSites(sites));
         });
     };

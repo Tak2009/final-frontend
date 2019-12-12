@@ -13,8 +13,8 @@ class ReviewsContainer extends React.Component {
 
     render () {
         // debugger
-        console.log(this.props)
-        console.log(this.props.site)
+        // console.log(this.props)
+        // console.log(this.props.site)
         return(
             <div>
                 {/* <ReviewInput addReview={this.props.addReview} restaurantId={this.props.restaurant.id}/> */}

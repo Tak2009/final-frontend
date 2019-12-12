@@ -22,7 +22,7 @@ export const fetchReviews = () => {
         fetch("http://localhost:4000/reviews")
         .then(resp => resp.json())
         .then(reviews => {
-            console.log(reviews)
+            // console.log(reviews)
             dispatch(setReviews(reviews));
         });
     };

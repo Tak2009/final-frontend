@@ -6,9 +6,9 @@ class ReviewList extends React.Component {
   
   renderReviews = () => {
       // debugger
-      console.log(this.props)
-      console.log(Object.keys(this.props.site))
-      console.log(Object.keys(this.props.site.reviews))
+      // console.log(this.props)
+      // console.log(Object.keys(this.props.site))
+      // console.log(Object.keys(this.props.site.reviews))
       
       const siteReviews = this.props.reviews.filter(review => review.latinamerica_id === this.props.site.id);
       
