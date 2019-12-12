@@ -1,50 +1,63 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-// import Site from "./Site"
 
 
-const SiteList = ({sites}) => {
-  console.log(sites)
-  console.log(Object.keys(sites))
+class SiteList extends React.Component {
   
-  const renderSites = Object.keys(sites).map(siteID => 
-      <li key={siteID}><Link key={siteID} to={`/sites/${siteID}`}>{sites[siteID].site} ({sites[siteID].states})</Link></li>
-      );
-     
-      return (
-        <div>
-          <ul>
-          {renderSites}
-          </ul>
-        </div>
-      );
+  
+  renderSites = () => {
+
+    return Object.keys(this.props.sites).map(siteID => (
+    <li key={siteID}><Link key={siteID} to={`/sites/${siteID}`}>{this.props.sites[siteID].site} ({this.props.sites[siteID].states})</Link>
+    <button onClick={() => this.props.deleteSite(this.props.sites[siteID].id_number)}> Delete </button>
+    </li>
+    ));
+   }
+
+  render(){
+    console.log(this.props.sites)
+    console.log(this.props.deleteSite)
+    console.log(Object.keys(this.props.sites))
+    return (
+      <div>
+        <ul>
+        {this.renderSites()}
+        </ul>
+      </div>
+     );
+  }
 };
 
 
 export default SiteList
 
 
-// class SiteList extends React.Component {
-  
-  
-//     renderSites = () => this.props.sites.map(site => <Site deleteSite={this.props.deleteSite} site={site} />)
+// import React from "react";
+// import { Link } from 'react-router-dom';
+
+
+// const SiteList = ({sites}, {deleteSite}) => {
+
+//     console.log(sites)
+//     console.log(deleteSite)
+//     console.log(Object.keys(sites))
     
-
-//     render() {
-//         console.log(this.props.sites)
-//         console.log(Object.keys(this.props.sites))
-//           return (
-//               <div>
-//                 <ul>
-//                 {this.renderSites()}
-//                 </ul>
-//               </div>
-//           );
-//     };
-// }
-
+//     const renderSites = Object.keys(sites).map(siteID => (
+//         <li key={siteID}><Link key={siteID} to={`/sites/${siteID}`}>{sites[siteID].site} ({sites[siteID].states})</Link>
+//         <button onClick={() => deleteSite(siteID)}> Delete </button>
+//         </li>
+         
+//  ));
+     
+//     return (
+//         <div>
+//           <ul>
+//           {renderSites}
+//           </ul>
+//         </div>
+//     );
+// };
 
 
 // export default SiteList
-
 

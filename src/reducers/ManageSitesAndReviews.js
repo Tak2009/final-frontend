@@ -3,8 +3,8 @@ import { combineReducers } from "redux";
 
 import {
     ADD_SITE,
-    SET_SITES
-    // DELETE_SITE
+    SET_SITES,
+    DELETE_SITE
   } from "../actions/SiteActions";
 import cuid from 'cuid';
 export const cuidFn = cuid;
@@ -24,16 +24,19 @@ function manageSites(state = [], action) {
             const site = {
                 id_number: cuid(),
                 site: action.site.site,
-                states: action.site.states
+                states: action.site.states,
+                short_description: action.site.short_description,
+                http_url: action.site.http_url
             }
             console.log(site)
             return [...state, site]
             // return { sites: state.sites.concat(site) }
         case SET_SITES:
                     return action.sites;
-        // case DELETE_SITES:
-        //     console.log(action)
-            // return state.filter(site => site.id !== action.id)
+        case DELETE_SITE:
+            // debugger
+            console.log(action)
+            return state.filter(site=> site.id_number !== action.id)
 
         default:
             return state
