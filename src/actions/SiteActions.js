@@ -20,10 +20,39 @@ export const fetchSites = () => {
     return (dispatch) => {
         fetch("http://localhost:4000/latinamericas")
         .then(resp => resp.json())
-        .then(sites=> {
+        .then(sites => {
             console.log(sites)
-            dispatch(setSites(sites))
-        })
-    }
+            dispatch(setSites(sites));
+        });
+    };
 }
+
+export const createSite = (site) => {
+    return (dispatch) => {
+        fetch("http://localhost:4000/latinamericas", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(site)
+        })
+        .then(resp => resp.json())
+        .then(site => {
+            console.log(site)
+            dispatch(addSite(site));
+        });
+    };
+}
+
+export const destroySite = (id) => {
+    return (dispatch) => {
+        fetch(`http://localhost:4000/latinamericas/${id}`, {
+            method: "DELETE",
+        })
+        .then(() => {
+            dispatch(deleteSite(id));
+        });
+    };
+}
+
 
