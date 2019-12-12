@@ -4,15 +4,22 @@ import { combineReducers } from "redux";
 import {
     ADD_SITE,
     SET_SITES,
-    DELETE_SITE
+    DELETE_SITE,
   } from "../actions/SiteActions";
+
+  import {
+    SET_REVIEWS,
+    DELETE_REVIEW
+  } from "../actions/ReviewActions";
+
+
 // import cuid from 'cuid';　// can not use this for ID as ID must be integer
 // export const cuidFn = cuid;
 
 
 const manageSitesAndReviews = combineReducers({
-    sites: manageSites
-    // reviews: manageReviews
+    sites: manageSites,
+    reviews: manageReviews
 });
 
 export default manageSitesAndReviews;
@@ -21,7 +28,6 @@ function manageSites(state = [], action) {
     console.log(action)
     switch(action.type) {
         case ADD_SITE:
-            
             
             const site = {
                 id: action.site.id,
@@ -46,19 +52,22 @@ function manageSites(state = [], action) {
     }
 };
 
-// function manageReviews(state = [], action) {
-//     console.log(action)
-    // switch(action.type) {
-    //     case "ADD_REVIEW":
-    //         const review = {
-    //             id: cuid(),
-    //             text: action.review.text,
-    //             restaurantId: action.review.restaurantId
-    //         }
-    //         return [...state, review]
-    //     case "DELETE_REVIEW":
-    //         return state.filter(review => review.id !== action.id)
-    //     default:
-    //         return state
-    // }
-// };
+function manageReviews(state = [], action) {
+    console.log(action)
+    // debugger
+    switch(action.type) {
+        case SET_REVIEWS:
+                    return action.reviews;
+        // case "ADD_REVIEW":
+        //     const review = {
+        //         id: review.id
+        //         text: action.review.text,
+        //         restaurantId: action.review.restaurantId
+        //     }
+        //     return [...state, review]
+        case DELETE_REVIEW:
+            return state.filter(review => review.id !== action.id)
+        default:
+            return state
+    }
+};
