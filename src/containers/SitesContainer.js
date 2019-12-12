@@ -16,6 +16,10 @@ class SitesContainer extends Component {
     render() {
         console.log(this.props.match.url)
         console.log(this.props)
+
+        
+    
+
         
         return (
         <div>

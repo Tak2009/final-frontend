@@ -24,6 +24,7 @@ function manageSites(state = [], action) {
             
             
             const site = {
+                id: action.site.id,
                 id_number: action.site.id_number,
                 site: action.site.site,
                 states: action.site.states,
