@@ -1,34 +1,41 @@
 import React, { Component } from 'react';
 import './SiteInput.css';
+import { connect } from "react-redux";
+import { createSite } from "../../actions/SiteActions";
 
 class SiteInput extends Component {
 
-state = {
+  generateId = () => {
+    return (Math.floor(Math.random() * (1999999 - 1000000)) + 1000000)} // from 1000000 to 1999999
+
+  state = {
   site: "",
   states: "",
   short_description: "",
-  http_url: ""
-}
+  http_url: "",
+  id_number: this.generateId()
+  }
   
 
-handleOnChange = (event) => {
-  console.log(this.state)
-  const {name, value} = event.target;
-  this.setState({
-    [name]: value
-  })
-}
+  handleOnChange = (event) => {
+    console.log(this.state)
+    const {name, value} = event.target;
+    this.setState({
+      [name]: value
+    })
+  }
 
-handleOnSubmit = (event) => {
-  event.preventDefault()
-  this.props.addSite(this.state)
-  this.setState({
-    site: "",
-    states: "",
-    short_description: "",
-    http_url: ""
-  })
-}
+  handleOnSubmit = (event) => {
+    event.preventDefault()
+    this.props.createSite(this.state) // this.props.addSite(this.state)
+    this.setState({
+      site: "",
+      states: "",
+      short_description: "",
+      http_url: "",
+      id_number: this.generateId()
+    })
+  }
 
   render() {
     console.log(this.props)
@@ -53,4 +60,4 @@ handleOnSubmit = (event) => {
 };
 
 
-export default SiteInput
+export default connect(null, { createSite })(SiteInput);

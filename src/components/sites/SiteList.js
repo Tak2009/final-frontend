@@ -6,17 +6,25 @@ class SiteList extends React.Component {
   
   
   renderSites = () => {
+    console.log(this.props)
+    console.log(Object.keys(this.props.sites))
 
-    return Object.keys(this.props.sites).map(siteID => (
-    <li key={siteID}><Link key={siteID} to={`/sites/${siteID}`}>{this.props.sites[siteID].site} ({this.props.sites[siteID].states})</Link>
-    <button onClick={() => this.props.deleteSite(this.props.sites[siteID].id_number)}> Delete </button>
-    </li>
-    ));
-   }
+    return this.props.sites.map(site => (
+      <li key={site.id}><Link key={site.id} to={`/sites/${site.id}`}>{site.site} ({site.states})</Link>
+      <button onClick={() => this.props.destroySite(site.id)}> Delete </button>
+      </li>
+      ));
+    };
+
+  //   return Object.keys(this.props.sites).map(siteID => (
+  //   <li key={siteID}><Link key={siteID} to={`/sites/${siteID}`}>{this.props.sites[siteID].site} ({this.props.sites[siteID].states})</Link>
+  //   <button onClick={() => this.props.destroySite(siteID)}> Delete </button>
+  //   </li>
+  //   ));
+  //  }
 
   render(){
     console.log(this.props.sites)
-    console.log(this.props.deleteSite)
     console.log(Object.keys(this.props.sites))
     return (
       <div>
