@@ -50,7 +50,7 @@ class ReviewInput extends Component {
                 <br/>
                 <label>Rating: <select name ="rating" onChange={this.handleSelectOnChange} value={this.state.rating}>{renderOptions}</select></label>
                 <br/>
-                <input type="submit"/>
+                <input type="submit" value="Add"/>
             </form>
       </div>
  

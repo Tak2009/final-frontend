@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './SiteInput.css';
 
+
 class SiteInput extends Component {
 
   generateId = () => {
@@ -50,7 +51,7 @@ class SiteInput extends Component {
                 <br/>
                 <label>Official UNESCO website: <input name="http_url" onChange={this.handleOnChange} type="text" className="input" value={this.state.http_url}/></label>
                 <br/>
-                <input type="submit"/>
+                <input type="submit" value="Add"/>
             </form>
       </div>
     );

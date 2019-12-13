@@ -9,7 +9,10 @@ const link = {
   background: 'blue',
   textDecoration: 'none',
   color: 'white',
+  
 }
+
+
 
 const NavBar = () => {
   return (

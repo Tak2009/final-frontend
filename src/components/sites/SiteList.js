@@ -26,7 +26,7 @@ class SiteList extends React.Component {
     console.log(this.props.sites)
     // console.log(Object.keys(this.props.sites))
     return (
-      <div>
+      <div class="container-fluid">
         <ul>
         {this.renderSites()}
         </ul>
