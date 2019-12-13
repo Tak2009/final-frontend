@@ -28,6 +28,23 @@ export const fetchReviews = () => {
     };
 }
 
+export const createReview = (review) => {
+    return (dispatch) => {
+        fetch("http://localhost:4000/reviews", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(review)
+        })
+        .then(resp => resp.json())
+        .then(review => {
+            console.log(review)
+            dispatch(addReview(review));
+        });
+    };
+}
+
 export const destroyReview = (id) => {
     return (dispatch) => {
         fetch(`http://localhost:4000/reviews/${id}`, {

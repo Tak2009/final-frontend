@@ -6,12 +6,10 @@ const SiteDetails= ({match, sites}) => {
     // debugger
     console.log(match)
     console.log(sites)
-    const selectSite = sites.filter(site => site.id == match.params.siteId)[0]
+const selectSite = sites.filter(site => site.id == match.params.siteId)[0]
     console.log(selectSite)
 
     return (
-
-      
       <div>
         { selectSite ?
         <div>

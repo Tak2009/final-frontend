@@ -1,7 +1,8 @@
 import React from "react"
 import { connect } from "react-redux"
-import { fetchReviews, destroyReview } from "../actions/ReviewActions";
+import { fetchReviews, createReview, destroyReview } from "../actions/ReviewActions";
 import ReviewList from "../components/reviews/ReviewList";
+import ReviewInput from "../components/reviews/ReviewInput";
 
 class ReviewsContainer extends React.Component {
 
@@ -12,12 +13,10 @@ class ReviewsContainer extends React.Component {
 
 
     render () {
-        // debugger
-        // console.log(this.props)
-        // console.log(this.props.site)
+        console.log(this.props.site)
         return(
             <div>
-                {/* <ReviewInput addReview={this.props.addReview} restaurantId={this.props.restaurant.id}/> */}
+                <ReviewInput createReview={this.props.createReview} site={this.props.site}/>
                 <ReviewList site={this.props.site} destroyReview={this.props.destroyReview} reviews={this.props.reviews}/>   
             </div>
         )
@@ -30,4 +29,4 @@ const mapStateToProps = state => {
     }
   }
 
-export default connect(mapStateToProps, { fetchReviews, destroyReview })(ReviewsContainer)
+export default connect(mapStateToProps, { fetchReviews, createReview, destroyReview })(ReviewsContainer)

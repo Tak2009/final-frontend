@@ -8,6 +8,7 @@ import {
   } from "../actions/SiteActions";
 
   import {
+    ADD_REVIEW,
     SET_REVIEWS,
     DELETE_REVIEW
   } from "../actions/ReviewActions";
@@ -53,18 +54,19 @@ function manageSites(state = [], action) {
 };
 
 function manageReviews(state = [], action) {
-    // console.log(action)
+    console.log(action)
     // debugger
     switch(action.type) {
         case SET_REVIEWS:
                     return action.reviews;
-        // case "ADD_REVIEW":
-        //     const review = {
-        //         id: review.id
-        //         text: action.review.text,
-        //         restaurantId: action.review.restaurantId
-        //     }
-        //     return [...state, review]
+        case ADD_REVIEW:
+            const review = {
+                id: action.review.id,
+                latinamerica_id: action.review.latinamerica_id,
+                comment: action.review.comment,
+                rating: action.review.rating
+            }
+            return [...state, review]
         case DELETE_REVIEW:
             return state.filter(review => review.id !== action.id)
         default:

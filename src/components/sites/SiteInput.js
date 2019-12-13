@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import './SiteInput.css';
-import { connect } from "react-redux";
-import { createSite } from "../../actions/SiteActions";
 
 class SiteInput extends Component {
 
@@ -60,4 +58,4 @@ class SiteInput extends Component {
 };
 
 
-export default connect(null, { createSite })(SiteInput);
+export default SiteInput;

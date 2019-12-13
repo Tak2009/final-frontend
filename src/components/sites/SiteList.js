@@ -7,7 +7,6 @@ class SiteList extends React.Component {
   
   renderSites = () => {
     console.log(this.props)
-    // console.log(Object.keys(this.props.sites))
 
     return this.props.sites.map(site => (
       <li key={site.id}><Link key={site.id} to={`/sites/${site.id}`}>{site.site} ({site.states})</Link>
