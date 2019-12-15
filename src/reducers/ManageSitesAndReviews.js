@@ -38,11 +38,24 @@ function manageSites(state = [], action) {
                 short_description: action.site.short_description,
                 http_url: action.site.http_url
             }
-            console.log(site)
-            return [...state, site]
+            // console.log(site)
+            return [...state, site]　
             // return { sites: state.sites.concat(site) }
         case SET_SITES:
-                    return action.sites;
+            console.log(action.sites)
+            return action.sites;
+
+            // console.log(action.sites.length)
+            // return action.sites.length === 0 ? action.sites : action.sites.map(site => ({
+            //     id: site.id, 
+            //     id_number: site.id_numbe, 
+            //     site:site.site, 
+            //     http_url: site.http_url,
+            //     short_description: site.short_description,
+            //     states: site.states,
+            //     reviews: site.reviews
+            // }))
+        
         case DELETE_SITE:
             // debugger
             console.log(action)
