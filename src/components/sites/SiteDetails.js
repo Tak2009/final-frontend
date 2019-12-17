@@ -2,6 +2,7 @@
 import React from "react";
 import ReviewsContainer from "../../containers/ReviewsContainer";
 import Site from "./Site"
+// import { Route } from 'react-router-dom';
 
 class SiteDetails extends React.Component {
     
@@ -11,6 +12,9 @@ class SiteDetails extends React.Component {
       return (this.props.sites.filter(site => site.id === Number(this.props.match.params.siteId))[0])
     } //site.id = number but params.siteId = string
   
+    messageSwitch = () => {
+      return (this.props.sites.length === 0 ? <h3>No Site Available</h3> : <h3>Click a site from the list above for more details</h3>)
+    }
 
     render() {
       console.log(this.selectSite())
@@ -18,10 +22,10 @@ class SiteDetails extends React.Component {
           <div>
             { this.selectSite() ?
             <div>
-            <Site site={this.selectSite()}/>
+            <Site site={this.selectSite()}/> {/* <Route exact path={this.props.match.url} render={routerProps =><Site {...routerProps} site={this.selectSite()}/>}/> */}
             <ReviewsContainer site={this.selectSite()}/>
             </div>
-            :  <h3>Click a site from the list above for more details</h3> }
+            :  this.messageSwitch() }
           </div>
         );
     }
