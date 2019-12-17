@@ -17,7 +17,8 @@ class ReviewList extends React.Component {
         const siteReviews = this.props.reviews.filter(review => review.latinamerica_id === this.props.site.id);
 
         return siteReviews.map(review => (
-          <li key={review.id}><p>{review.comment}</p>
+          <li key={review.id}>
+          <p>Comment: {review.comment}</p>
           <p>Rating: ({review.rating})</p>
           <button onClick={() => this.props.destroyReview(review.id)}> Delete </button>
           </li>
