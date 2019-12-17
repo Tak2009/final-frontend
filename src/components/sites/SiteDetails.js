@@ -21,7 +21,7 @@ class SiteDetails extends React.Component {
             <Site site={this.selectSite()}/>
             <ReviewsContainer site={this.selectSite()}/>
             </div>
-            : null }
+            :  <h3>Click a site from the list above for more details</h3> }
           </div>
         );
     }

@@ -25,9 +25,10 @@ class ReviewList extends React.Component {
     };
 
     render(){
+      console.log(this.calcRating())
       return (
          <div class="container-fluid">
-            <h4>Reviews: (Total Rating: {this.calcRating()}/5)</h4>
+            <h4>Reviews: (Total Rating: {this.calcRating() ? `${this.calcRating()}/5)` : "Rating Not Available)"}</h4>
             <ol>
             {this.renderReviews()}
             </ol>
