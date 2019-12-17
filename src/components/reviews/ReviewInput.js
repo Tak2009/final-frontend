@@ -44,9 +44,9 @@ class ReviewInput extends Component {
       return( 
             <div>
           <br/>
-           <h3>New Site Input Form</h3>
+           <h3>New Review Input Form</h3>
             <form onSubmit={this.handleOnSubmit} className="form_style"> 
-                <label>Commen: <textarea name="comment" onChange={this.handleTextareaOnChange} type="text" className="textarea" value={this.state.site}/></label>
+                <label>Comment: <textarea name="comment" onChange={this.handleTextareaOnChange} type="text" className="textarea" value={this.state.comment}/></label>
                 <br/>
                 <label>Rating: <select name ="rating" onChange={this.handleSelectOnChange} value={this.state.rating}>{renderOptions}</select></label>
                 <br/>

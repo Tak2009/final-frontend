@@ -7,13 +7,12 @@ import * as serviceWorker from './serviceWorker';
 import manageSitesAndReviews from './reducers/ManageSitesAndReviews'
 
 import { Provider } from "react-redux";
-import { createStore , applyMiddleware} from "redux";
+import { createStore, compose,  applyMiddleware} from "redux";
 import thunk from "redux-thunk";
 
-
-
-const store = createStore(manageSitesAndReviews, applyMiddleware(thunk))
-
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(manageSitesAndReviews, composeEnhancer(applyMiddleware(thunk)))
+// const store = createStore(manageSitesAndReviews, applyMiddleware(thunk))
 
 ReactDOM.render(
   <Provider store={store}>

@@ -10,10 +10,9 @@ class ReviewsContainer extends React.Component {
         this.props.fetchReviews()
     }
 
-
-
     render () {
         console.log(this.props.site)
+        console.log(this.props)
         return(
             <div>
                 <ReviewInput createReview={this.props.createReview} site={this.props.site}/>
@@ -23,10 +22,7 @@ class ReviewsContainer extends React.Component {
     }
 };
 
-const mapStateToProps = state => {
-    return {
-      reviews: state.reviews
-    }
-  }
+const mapStateToProps = ({reviews}) => ({reviews})
+
 
 export default connect(mapStateToProps, { fetchReviews, createReview, destroyReview })(ReviewsContainer)

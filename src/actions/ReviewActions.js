@@ -39,7 +39,7 @@ export const createReview = (review) => {
         })
         .then(resp => resp.json())
         .then(review => {
-            console.log(review)
+            // console.log(review)
             dispatch(addReview(review));
         });
     };

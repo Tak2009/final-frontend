@@ -30,11 +30,25 @@ class SitesContainer extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-      sites: state.sites
-    }
-  }
+// const mapStateToProps = state => {
+//     return {
+//         sites: state.sites
+//     }
+// }
 
+const mapStateToProps = state => {
+    const rearrangedStateSites = state.sites.map(site => ({
+        id: site.id,
+        id_number: site.id_number,
+        site: site.site,
+        states: site.states,
+        short_description: site.short_description,
+        http_url: site.http_url 
+        })
+    )
+    return {
+        sites: rearrangedStateSites
+    }
+}
 
 export default connect(mapStateToProps, { fetchSites, createSite, destroySite } )(SitesContainer) // no more deleteSite

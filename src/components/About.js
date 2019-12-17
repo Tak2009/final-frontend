@@ -1,6 +1,7 @@
 import React from "react";
 
 const About = () => {
+
     return (
       <div>
         <h1 class="display-6">You can</h1>

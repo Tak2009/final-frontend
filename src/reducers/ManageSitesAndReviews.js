@@ -1,5 +1,7 @@
 
 import { combineReducers } from "redux";
+// import cuid from 'cuid';　// can not use this for ID as ID must be integer
+// export const cuidFn = cuid;
 
 import {
     ADD_SITE,
@@ -14,22 +16,10 @@ import {
   } from "../actions/ReviewActions";
 
 
-// import cuid from 'cuid';　// can not use this for ID as ID must be integer
-// export const cuidFn = cuid;
-
-
-const manageSitesAndReviews = combineReducers({
-    sites: manageSites,
-    reviews: manageReviews
-});
-
-export default manageSitesAndReviews;
-
-function manageSites(state = [], action) {
+const manageSites = (state = [], action) => {
     // console.log(action)
     switch(action.type) {
         case ADD_SITE:
-            
             const site = {
                 id: action.site.id,
                 id_number: action.site.id_number,
@@ -39,8 +29,10 @@ function manageSites(state = [], action) {
                 http_url: action.site.http_url
             }
             // console.log(site)
-            return [...state, site]　
+            return [...state, site]
+            // return state.concat(site)
             // return { sites: state.sites.concat(site) }
+            
         case SET_SITES:
             console.log(action.sites)
             return action.sites;
@@ -58,7 +50,7 @@ function manageSites(state = [], action) {
         
         case DELETE_SITE:
             // debugger
-            console.log(action)
+            // console.log(action)
             return state.filter(site=> site.id !== action.id)
 
         default:
@@ -66,8 +58,8 @@ function manageSites(state = [], action) {
     }
 };
 
-function manageReviews(state = [], action) {
-    console.log(action)
+const manageReviews = (state = [], action) => {
+    // console.log(action)
     // debugger
     switch(action.type) {
         case SET_REVIEWS:
@@ -86,3 +78,12 @@ function manageReviews(state = [], action) {
             return state
     }
 };
+
+
+const manageSitesAndReviews = combineReducers({
+    sites: manageSites,
+    reviews: manageReviews
+});
+
+
+export default manageSitesAndReviews;

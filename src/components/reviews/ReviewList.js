@@ -5,24 +5,16 @@ import React from "react";
 class ReviewList extends React.Component {
 
     calcRating = () => {
-      const siteReviews = this.props.reviews.filter(review => review.latinamerica_id === this.props.site.id);
-      const reviewRatingArray = siteReviews.map(review => review.rating)
-      const totalReviewRating = reviewRatingArray.length === 0 ?  null : reviewRatingArray.reduce((prev, curr) => (prev + curr))
-      const averageRating = reviewRatingArray.length === 0 ? null : (totalReviewRating/reviewRatingArray.length).toFixed(1)
-    
-      console.log(reviewRatingArray)
-      console.log(siteReviews)
-      console.log(totalReviewRating)
-      console.log(averageRating)
-
-
-      return averageRating
-      
+        const siteReviews = this.props.reviews.filter(review => review.latinamerica_id === this.props.site.id);
+        const reviewRatingArray = siteReviews.map(review => review.rating)
+        const totalReviewRating = reviewRatingArray.length === 0 ?  null : reviewRatingArray.reduce((prev, curr) => (prev + curr))
+        const averageRating = reviewRatingArray.length === 0 ? null : (totalReviewRating/reviewRatingArray.length).toFixed(1)
+        
+        return averageRating
     };
 
     renderReviews = () => {
-      
-      const siteReviews = this.props.reviews.filter(review => review.latinamerica_id === this.props.site.id);
+        const siteReviews = this.props.reviews.filter(review => review.latinamerica_id === this.props.site.id);
 
         return siteReviews.map(review => (
           <li key={review.id}><p>{review.comment}</p>

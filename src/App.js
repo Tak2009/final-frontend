@@ -16,7 +16,7 @@ class App extends Component {
         <div className="App">
           <NavBar />
           <Route exact path="/" component={Home} /> {/* <Route exact path="/" render={() => <div><h1>Welcome to World Heritage Site Finder</h1></div>} /> */}
-          <Route exact path="/about" component={About} />
+          <Route exact path="/about" component={About} /> {/* <Route exatc path="/about" render={routerProps => <About {...routerProps}/>}/> */}
           <Route path='/sites' render={routerProps => <SitesContainer {...routerProps} />}/>
         </div>
       </Router>

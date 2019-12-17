@@ -4,23 +4,14 @@ import { Link } from 'react-router-dom';
 
 class SiteList extends React.Component {
   
-  
-  renderSites = () => {
+   renderSites = () => {
     console.log(this.props)
-
     return this.props.sites.map(site => (
       <li key={site.id}><Link key={site.id} to={`/sites/${site.id}`}>{site.site} ({site.states})</Link>
       <button onClick={() => this.props.destroySite(site.id)}> Delete </button>
       </li>
       ));
     };
-
-  //   return Object.keys(this.props.sites).map(siteID => (
-  //   <li key={siteID}><Link key={siteID} to={`/sites/${siteID}`}>{this.props.sites[siteID].site} ({this.props.sites[siteID].states})</Link>
-  //   <button onClick={() => this.props.destroySite(siteID)}> Delete </button>
-  //   </li>
-  //   ));
-  //  }
 
   render(){
     console.log(this.props.sites)
