@@ -10,13 +10,13 @@ import { Route } from 'react-router-dom';
 class SitesContainer extends Component {
 
     componentDidMount() {
+        console.log(this.props)
         this.props.fetchSites()
     }
 
     render() {
-        console.log(this.props.match)
+        // debugger
         console.log(this.props)
-
         return (
         <div>
             <SiteInput createSite={this.props.createSite}/>
