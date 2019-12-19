@@ -8,21 +8,12 @@ class ReviewInput extends Component {
         latinamerica_id: this.props.site.id
     }
     
-    handleTextareaOnChange = (event) => {
+    handleOnChange = (event) => {
         console.log(this.state)
+        const {name, value} = event.target;
+        console.log({name, value})
         this.setState({
-            
-            comment: event.target.value,
-            latinamerica_id: this.props.site.id
-        })
-    }
-
-    handleSelectOnChange = (event) => {
-        console.log(this.state)
-        this.setState({
-           
-            rating: event.target.value,
-            latinamerica_id: this.props.site.id
+            [name]: value
         })
     }
 
@@ -48,9 +39,9 @@ class ReviewInput extends Component {
           <br/>
            <h3>New Review Input Form</h3>
             <form onSubmit={this.handleOnSubmit} className="form_style"> 
-                <label>Comment: <textarea name="comment" onChange={this.handleTextareaOnChange} type="text" className="textarea" value={this.state.comment}/></label>
+                <label>Comment: <textarea name="comment" onChange={this.handleOnChange} type="text" className="textarea" value={this.state.comment}/></label>
                 <br/>
-                <label>Rating: <select name ="rating" onChange={this.handleSelectOnChange} value={this.state.rating}>{this.renderOptions()}</select></label>
+                <label>Rating: <select name ="rating" onChange={this.handleOnChange} value={this.state.rating}>{this.renderOptions()}</select></label>
                 <br/>
                 <input type="submit" value="Add"/>
             </form>
