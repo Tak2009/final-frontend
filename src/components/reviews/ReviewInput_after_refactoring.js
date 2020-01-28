@@ -13,7 +13,9 @@ class ReviewInput extends Component {
         const {name, value} = event.target;
         console.log({name, value})
         this.setState({
-            [name]: value
+            [name]: value,
+            latinamerica_id: this.props.site.id
+            
         })
     }
 
