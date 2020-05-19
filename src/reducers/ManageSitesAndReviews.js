@@ -51,7 +51,7 @@ const manageSites = (state = [], action) => {
         case DELETE_SITE:
             // debugger
             // console.log(action)
-            return state.filter(site=> site.id !== action.id)
+            return state.filter(site => site.id !== action.id)
 
         default:
             return state
