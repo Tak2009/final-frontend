@@ -1,46 +1,47 @@
 import React from 'react';
+import { MenuItems } from './MenuItems'
 import { NavLink } from 'react-router-dom';
+import './NavBar.css'
+import { Button } from "./Button"
 
 
-const link = {
-  width: '100px',
-  padding: '12px',
-  margin: '0 6px 6px',
-  background: 'blue',
-  textDecoration: 'none',
-  color: 'white',
+
+// https://youtu.be/fL8cFqhTHwA?t=1143
+
+
+class NavBar extends React.Component {
   
-}
+  state = { clicked: false }
+  
+  handleClick = () => {
+    this.setState({ clicked: !this.state.clicked })
+    console.log(this.state)
+  }
 
-
-
-const NavBar = () => {
-  return (
-    <div className="navbar">
-      <NavLink 
-        style={link} 
-        to="/"
-        activeStyle={{
-          background: "darkblue"
-        }}
-      >Home</NavLink>
-      <NavLink 
-        style={link} 
-        to="/about"
-        activeStyle={{
-          background: "darkblue"
-        }}
-      >About</NavLink>
-      <NavLink 
-        style={link} 
-        to="/sites"
-        activeStyle={{
-          background: "darkblue"
-        }}
-      >Site List</NavLink>
+  render () {
     
-   </div>
-  );
+    return(
+    <nav className="NavbarItems">
+      <h2 className='navbar-logo'>React<i className='fab fa-react'></i>
+      </h2>
+      <div className="menu-icon" onClick={this.handleClick}>
+        <i className={this.state.clicked ? 'fa-solid fa-xmark' : 'fas fa-bars'}></i>
+      </div>
+        <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
+          {MenuItems.map((item, index) => {
+            return (
+              <li key={index}>
+                <NavLink className={item.cName} to={item.to}>
+                  {item.title}
+                </NavLink>
+              </li>
+            )
+          })}
+        </ul>
+        <Button>Sign up</Button>
+      </nav>
+    )
+  }
 }
 
 export default NavBar;

@@ -11,6 +11,7 @@ import { About } from './components/About';
 
 class App extends Component {
   render() {
+    console.log("app")
     return (
       <Router>
         <div className="App">

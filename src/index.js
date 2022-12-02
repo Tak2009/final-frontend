@@ -14,6 +14,8 @@ const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(manageSitesAndReviews, composeEnhancer(applyMiddleware(thunk)))
 // const store = createStore(manageSitesAndReviews, applyMiddleware(thunk))
 
+console.log("index")
+
 ReactDOM.render(
   <Provider store={store}>
     <App />
