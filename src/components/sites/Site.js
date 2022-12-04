@@ -4,7 +4,7 @@ import './Site.css'
 const siteDetails = (props) => {
     console.log(props)
       return (
-      <div ref={props.ref}>
+      <div id="detail">
         <h4>Site Details</h4>
         <table>
           <tbody>

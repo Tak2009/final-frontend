@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+// https://www.npmjs.com/package/react-router-hash-link
+import { HashLink } from 'react-router-hash-link';
 import './SiteList.css'
 
 
@@ -14,7 +15,7 @@ class SiteList extends React.Component {
             <button onClick={() => this.props.destroySite(site.id)} className="btn--small"> Delete </button>
           </td>
           <td>
-            <p key={site.id}><Link key={site.id} to={`/sites/${site.id}`}>{site.site} ({site.states})</Link></p>
+            <p key={site.id}><HashLink key={site.id} to={`/sites/${site.id}/#detail`}>{site.site} ({site.states})</HashLink></p>
           </td>
         </tr>
       </table>
