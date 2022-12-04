@@ -1,0 +1,19 @@
+.btn--small {
+    padding: 1px 5px;
+    border-radius:  4px;
+    font-size:  12px;
+    color: black;
+    border-width: 0.2mm;
+}
+
+td {
+    text-align: left;
+    vertical-align: top;
+    height: 1px;
+  }
+
+  td.first-td {
+    text-align: left;
+    padding: 10px 40px;
+    height: 1px;
+  }

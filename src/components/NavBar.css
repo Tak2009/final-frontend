@@ -30,10 +30,15 @@
     margin-right: 2rem;
 }
 
+.adjust {
+    margin-top: 1rem;
+}
+
 .nav-links {
     color: white;
     text-decoration: none;
     padding: 0.5rem 1rem;
+ 
 }
 
 .nav-links:hover {
@@ -137,7 +142,7 @@
         transition: 250ms;
     }
 
-    Button {
+    .hidden-element {
         display: none;
     }
     

@@ -6,7 +6,6 @@ import Site from "./Site"
 
 class SiteDetails extends React.Component {
     
-    
     selectSite = () => {
       console.log(this.props)
       return (this.props.sites.filter(site => site.id === Number(this.props.match.params.siteId))[0])
@@ -22,8 +21,9 @@ class SiteDetails extends React.Component {
           <div>
             { this.selectSite() ?
             <div>
-            <Site site={this.selectSite()}/> {/* <Route exact path={this.props.match.url} render={routerProps =><Site {...routerProps} site={this.selectSite()}/>}/> */}
-            <ReviewsContainer site={this.selectSite()}/>
+              <Site site={this.selectSite()}/> 
+              {/* <Route exact path={this.props.match.url} render={routerProps =><Site {...routerProps} site={this.selectSite()}/>}/> */}
+              <ReviewsContainer site={this.selectSite()}/>
             </div>
             :  this.messageSwitch() }
           </div>

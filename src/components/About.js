@@ -1,14 +1,15 @@
 import React from "react";
+import './About.css'
 
 const About = () => {
 
     return (
       <div>
-        <h1 class="display-6">You can</h1>
+        <h1>You can</h1>
         <ol >
-            <li class="h4">Add Sites</li>
-            <li class="h4">Add Comments on Sites</li>
-            <li class="h4">Add Rating on Sites</li>
+            <li>Add Sites</li>
+            <li>Add Comments on Sites</li>
+            <li>Add Rating on Sites</li>
         </ol>
      </div>
     );

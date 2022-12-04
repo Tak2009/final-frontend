@@ -30,7 +30,7 @@ class NavBar extends React.Component {
         <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
           {MenuItems.map((item, index) => {
             return (
-              <li key={index}>
+              <li key={index} className="adjust">
                 <NavLink className={item.cName} to={item.to}>
                   {item.title}
                 </NavLink>
@@ -38,7 +38,9 @@ class NavBar extends React.Component {
             )
           })}
         </ul>
-        <Button>Sign up</Button>
+
+          <Button>Sign up</Button>
+
       </nav>
     )
   }

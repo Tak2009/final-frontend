@@ -1,0 +1,9 @@
+h1 {
+    position: relative;
+    left: 20px;
+}
+
+li {
+    font-size: 18px;
+    color: blue
+}

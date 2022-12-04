@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import './SiteList.css'
 
 
 class SiteList extends React.Component {
@@ -7,9 +8,16 @@ class SiteList extends React.Component {
    renderSites = () => {
     console.log(this.props)
     return this.props.sites.map(site => (
-      <li key={site.id}><Link key={site.id} to={`/sites/${site.id}`}>{site.site} ({site.states})</Link>
-      <button onClick={() => this.props.destroySite(site.id)}> Delete </button>
-      </li>
+      <table>
+        <tr>
+          <td className="first-td">
+            <button onClick={() => this.props.destroySite(site.id)} className="btn--small"> Delete </button>
+          </td>
+          <td>
+            <p key={site.id}><Link key={site.id} to={`/sites/${site.id}`}>{site.site} ({site.states})</Link></p>
+          </td>
+        </tr>
+      </table>
       ));
     };
 
